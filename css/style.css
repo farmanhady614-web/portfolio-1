@@ -1242,3 +1242,65 @@ ul {
         transform: translateY(0);
     }
 }
+
+/* ========================================
+   Project Links Bottom Styles
+   ======================================== */
+.project-links-bottom {
+    margin-top: 1rem;
+    padding-top: 0.75rem;
+    border-top: 1px solid var(--border-color);
+}
+
+.project-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    transition: all var(--transition-normal);
+    text-decoration: none;
+}
+
+.project-btn:hover {
+    transform: translateX(5px);
+    box-shadow: var(--shadow-md);
+    color: white;
+}
+
+.project-btn i {
+    font-size: 0.85rem;
+}
+
+/* Update existing project card styles */
+.project-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.project-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.project-tech {
+    margin-bottom: 0.5rem;
+}
+
+.project-links-bottom {
+    margin-top: auto;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .project-btn {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.8rem;
+    }
+}
