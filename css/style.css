@@ -1304,77 +1304,65 @@ ul {
         font-size: 0.8rem;
     }
 }
+
 /* ========================================
-   Hero Image Styles
+   Project Image Styles - Consistent Size
    ======================================== */
-.hero-image {
+.project-image {
     position: relative;
-    animation: fadeInRight 1s ease;
-}
-
-.image-wrapper {
-    position: relative;
-    display: inline-block;
     width: 100%;
-    max-width: 400px;
-    margin: 0 auto;
+    height: 250px;
+    overflow: hidden;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
 }
 
-.hero-img {
-    width: 100%;
-    height: auto;
-    border-radius: 30px;
-    position: relative;
-    z-index: 2;
-    transition: transform var(--transition-normal);
-    box-shadow: var(--shadow-xl);
-}
-
-.hero-img:hover {
-    transform: scale(1.02);
-}
-
-.image-glow {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+.project-img {
     width: 100%;
     height: 100%;
-    background: radial-gradient(circle, rgba(59,130,246,0.2) 0%, rgba(139,92,246,0.1) 50%, transparent 70%);
-    border-radius: 30px;
-    z-index: 1;
-    animation: pulse 2s ease-in-out infinite;
+    object-fit: cover;
+    transition: transform var(--transition-normal);
 }
 
-@keyframes pulse {
-    0%, 100% {
-        opacity: 0.5;
-        transform: translate(-50%, -50%) scale(1);
-    }
-    50% {
-        opacity: 0.8;
-        transform: translate(-50%, -50%) scale(1.05);
-    }
+.project-card:hover .project-img {
+    transform: scale(1.1);
+}
+
+/* Fallback for images that haven't loaded yet */
+.project-img[src=""], 
+.project-img:not([src]) {
+    opacity: 0;
+}
+
+/* Image placeholder styling */
+.image-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    font-size: 3rem;
+}
+
+/* Hero image styles */
+.hero-img {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    border-radius: 20px;
+    object-fit: cover;
 }
 
 /* Responsive adjustments */
-@media (max-width: 992px) {
-    .image-wrapper {
-        max-width: 300px;
-    }
-    
-    .hero-img {
-        border-radius: 20px;
+@media (max-width: 768px) {
+    .project-image {
+        height: 200px;
     }
 }
 
-@media (max-width: 768px) {
-    .image-wrapper {
-        max-width: 250px;
-    }
-    
-    .hero-img {
-        border-radius: 15px;
+@media (max-width: 480px) {
+    .project-image {
+        height: 180px;
     }
 }

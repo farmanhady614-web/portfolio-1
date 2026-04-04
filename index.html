@@ -7,24 +7,71 @@
     <meta name="author" content="Farman Hadi">
     <title>Farman Hadi | Portfolio</title>
     
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <!-- Google Fonts - Optimized -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
     <!-- CSS -->
     <link rel="stylesheet" href="css/style.css">
     
-    <!-- Font Awesome Icons -->
+    <!-- Font Awesome Icons - Optimized -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <style>
+        /* Quick fix for loader */
+        .loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #ffffff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+        
+        [data-theme="dark"] .loader {
+            background: #111827;
+        }
+        
+        .loader-content {
+            width: 50px;
+            height: 50px;
+            border: 3px solid #e5e7eb;
+            border-top-color: #3b82f6;
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+        }
+        
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+        
+        .loader.hide {
+            opacity: 0;
+            visibility: hidden;
+        }
+        
+        /* Prevent layout shift */
+        body {
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        body.loaded {
+            opacity: 1;
+        }
+    </style>
 </head>
 <body>
     <!-- Loading Animation -->
-    <div class="loader">
+    <div class="loader" id="loader">
         <div class="loader-content"></div>
     </div>
-
-    <!-- Custom Cursor -->
-    <div class="cursor"></div>
-    <div class="cursor-follower"></div>
 
     <!-- Navigation -->
     <nav class="navbar">
@@ -96,9 +143,8 @@
                     </div>
                     <div class="hero-image">
                         <div class="image-wrapper">
-                            <div class="image-placeholder">
-                                <i class="fas fa-code"></i>
-                            </div>
+                            <img src="assets/images/profile.jpg" alt="Farman Hadi" class="hero-img" loading="lazy" onerror="this.src='https://via.placeholder.com/400x400?text=Farman+Hadi'">
+                            <div class="image-glow"></div>
                         </div>
                     </div>
                 </div>
@@ -180,7 +226,7 @@
             </div>
         </section>
 
-        <!-- Skills Section (Improved Layout) -->
+        <!-- Skills Section -->
         <section id="skills" class="skills-section section">
             <div class="container">
                 <div class="section-header">
@@ -345,12 +391,10 @@
                 </div>
                 
                 <div class="projects-grid">
-                    <!-- Project 1 - Apotek Online (PHP Laravel) -->
+                    <!-- Project 1 - Apotek Online -->
                     <div class="project-card">
                         <div class="project-image">
-                            <div class="image-placeholder">
-                                <i class="fas fa-hospital-user"></i>
-                            </div>
+                            <img src="assets/images/projects/apotek-online.jpg" alt="Apotek Online" class="project-img" loading="lazy" onerror="this.src='https://via.placeholder.com/400x300?text=Apotek+Online'">
                             <div class="project-overlay">
                                 <div class="project-links">
                                     <a href="http://localhost/apotek_online/index.php" class="project-link" target="_blank">
@@ -366,15 +410,13 @@
                             <h3 class="project-title">Apotek Online</h3>
                             <p class="project-description">
                                 Sistem manajemen apotek online berbasis web dengan fitur lengkap untuk pengelolaan obat, 
-                                transaksi penjualan, manajemen stok, dan laporan penjualan. Dilengkapi dengan dashboard 
-                                admin yang interaktif dan user-friendly.
+                                transaksi penjualan, manajemen stok, dan laporan penjualan.
                             </p>
                             <div class="project-tech">
                                 <span>PHP</span>
                                 <span>Laravel</span>
                                 <span>MySQL</span>
                                 <span>Bootstrap</span>
-                                <span>JavaScript</span>
                             </div>
                             <div class="project-links-bottom">
                                 <a href="http://localhost/apotek_online/index.php" class="project-btn" target="_blank">
@@ -385,12 +427,10 @@
                         </div>
                     </div>
                     
-                    <!-- Project 2 - Mobile App UI/UX Design -->
+                    <!-- Project 2 - Mobile App UI/UX -->
                     <div class="project-card">
                         <div class="project-image">
-                            <div class="image-placeholder">
-                                <i class="fab fa-figma"></i>
-                            </div>
+                            <img src="assets/images/projects/mobile-app-design.jpg" alt="Mobile App Design" class="project-img" loading="lazy" onerror="this.src='https://via.placeholder.com/400x300?text=Mobile+App+Design'">
                             <div class="project-overlay">
                                 <div class="project-links">
                                     <a href="#" class="project-link" target="_blank">
@@ -422,12 +462,10 @@
                         </div>
                     </div>
                     
-                    <!-- Project 3 - Promotional Video Content -->
+                    <!-- Project 3 - Video Content -->
                     <div class="project-card">
                         <div class="project-image">
-                            <div class="image-placeholder">
-                                <i class="fas fa-video"></i>
-                            </div>
+                            <img src="assets/images/projects/video-editing.jpg" alt="Video Editing" class="project-img" loading="lazy" onerror="this.src='https://via.placeholder.com/400x300?text=Video+Editing'">
                             <div class="project-overlay">
                                 <div class="project-links">
                                     <a href="#" class="project-link" target="_blank">
@@ -459,12 +497,10 @@
                         </div>
                     </div>
                     
-                    <!-- Project 4 - Brand Identity Design -->
+                    <!-- Project 4 - Brand Identity -->
                     <div class="project-card">
                         <div class="project-image">
-                            <div class="image-placeholder">
-                                <i class="fas fa-paint-brush"></i>
-                            </div>
+                            <img src="assets/images/projects/brand-identity.jpg" alt="Brand Identity" class="project-img" loading="lazy" onerror="this.src='https://via.placeholder.com/400x300?text=Brand+Identity'">
                             <div class="project-overlay">
                                 <div class="project-links">
                                     <a href="#" class="project-link" target="_blank">
@@ -529,14 +565,14 @@
                                 <i class="fas fa-phone-alt"></i>
                                 <div>
                                     <h4>Phone</h4>
-                                    <a href="tel:+6281234567890">+62 852 3732 9865</a>
+                                    <a href="tel:+6285237329865">+62 852 3732 9865</a>
                                 </div>
                             </div>
                             <div class="contact-item">
                                 <i class="fas fa-map-marker-alt"></i>
                                 <div>
                                     <h4>Location</h4>
-                                    <p>Kesik, Kec.Masbagik</p>
+                                    <p>Kesik, Kec. Masbagik, Lombok Timur, NTB</p>
                                 </div>
                             </div>
                         </div>
@@ -618,7 +654,35 @@
         </div>
     </footer>
 
-    <!-- JavaScript -->
+    <!-- JavaScript - Moved to bottom for faster loading -->
     <script src="js/main.js"></script>
+    <script>
+        // Simple loader hide without custom cursor issues
+        (function() {
+            // Hide loader immediately after page loads
+            window.addEventListener('load', function() {
+                var loader = document.getElementById('loader');
+                if (loader) {
+                    loader.classList.add('hide');
+                    setTimeout(function() {
+                        loader.style.display = 'none';
+                    }, 300);
+                }
+                document.body.classList.add('loaded');
+            });
+            
+            // Fallback: hide loader after 2 seconds if something goes wrong
+            setTimeout(function() {
+                var loader = document.getElementById('loader');
+                if (loader && !loader.classList.contains('hide')) {
+                    loader.classList.add('hide');
+                    setTimeout(function() {
+                        loader.style.display = 'none';
+                    }, 300);
+                }
+                document.body.classList.add('loaded');
+            }, 2000);
+        })();
+    </script>
 </body>
 </html>
