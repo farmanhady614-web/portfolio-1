@@ -2,7 +2,7 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=yes">
     <meta name="description" content="Portfolio Farman Hadi - Web Developer & Creative Designer">
     <meta name="author" content="Farman Hadi">
     <title>Farman Hadi | Portfolio</title>
@@ -64,6 +64,369 @@
         
         body.loaded {
             opacity: 1;
+        }
+
+        /* ========================================
+           Mobile Responsive Fixes
+           ======================================== */
+        
+        /* Container padding untuk mobile */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Hero section mobile */
+        @media (max-width: 768px) {
+            .hero {
+                padding: 80px 0 60px;
+                min-height: auto;
+            }
+            
+            .hero-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                text-align: center;
+            }
+            
+            .hero-text {
+                order: 1;
+            }
+            
+            .hero-image {
+                order: 0;
+                margin-bottom: 1rem;
+            }
+            
+            .hero-title .name {
+                font-size: 2rem;
+            }
+            
+            .typed-text {
+                font-size: 1.2rem;
+                display: block;
+                margin-top: 0.5rem;
+            }
+            
+            .hero-description {
+                font-size: 0.95rem;
+                padding: 0 10px;
+            }
+            
+            .hero-buttons {
+                justify-content: center;
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .hero-buttons .btn {
+                width: 100%;
+                justify-content: center;
+            }
+            
+            .social-links {
+                justify-content: center;
+            }
+            
+            .image-wrapper {
+                max-width: 250px;
+                margin: 0 auto;
+            }
+            
+            .hero-img {
+                width: 100%;
+                height: auto;
+            }
+            
+            .scroll-indicator {
+                display: none;
+            }
+        }
+        
+        /* About section mobile */
+        @media (max-width: 768px) {
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .about-text {
+                text-align: center;
+            }
+            
+            .about-stats {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 0.5rem;
+            }
+            
+            .stat-card {
+                padding: 1rem;
+            }
+            
+            .stat-number {
+                font-size: 1.5rem;
+            }
+            
+            .stat-label {
+                font-size: 0.75rem;
+            }
+            
+            .skills-grid {
+                grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+                gap: 0.8rem;
+            }
+            
+            .skill-item {
+                padding: 0.8rem;
+            }
+            
+            .skill-item i {
+                font-size: 1.5rem;
+            }
+            
+            .skill-item span {
+                font-size: 0.8rem;
+            }
+        }
+        
+        /* Skills section mobile */
+        @media (max-width: 768px) {
+            .skills-section {
+                padding: 60px 0;
+            }
+            
+            .skills-category {
+                padding: 1.2rem;
+            }
+            
+            .category-title {
+                font-size: 1.2rem;
+                margin-bottom: 1.2rem;
+            }
+            
+            .skills-grid-large {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            
+            .skill-card {
+                padding: 1rem;
+            }
+            
+            .skills-tools {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 0.8rem;
+            }
+            
+            .tool-item {
+                padding: 0.8rem;
+                justify-content: center;
+            }
+            
+            .tool-item i {
+                font-size: 1.2rem;
+            }
+            
+            .tool-item span {
+                font-size: 0.85rem;
+            }
+        }
+        
+        /* Projects section mobile */
+        @media (max-width: 768px) {
+            .projects {
+                padding: 60px 0;
+            }
+            
+            .projects-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .project-card {
+                max-width: 100%;
+            }
+            
+            .project-image {
+                height: 200px;
+            }
+            
+            .project-info {
+                padding: 1.2rem;
+            }
+            
+            .project-title {
+                font-size: 1.2rem;
+            }
+            
+            .project-description {
+                font-size: 0.85rem;
+            }
+            
+            .project-tech span {
+                font-size: 0.7rem;
+                padding: 0.2rem 0.6rem;
+            }
+            
+            .project-btn {
+                padding: 0.4rem 0.8rem;
+                font-size: 0.8rem;
+            }
+        }
+        
+        /* Contact section mobile */
+        @media (max-width: 768px) {
+            .contact {
+                padding: 60px 0;
+            }
+            
+            .contact-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .contact-info {
+                text-align: center;
+            }
+            
+            .contact-item {
+                justify-content: center;
+            }
+            
+            .contact-form {
+                padding: 1.5rem;
+            }
+            
+            .form-group input,
+            .form-group textarea {
+                font-size: 16px;
+            }
+        }
+        
+        /* Footer mobile */
+        @media (max-width: 768px) {
+            .footer {
+                padding: 40px 0 20px;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 1.5rem;
+            }
+            
+            .footer-logo p {
+                margin-top: 0.5rem;
+            }
+            
+            .footer-links ul {
+                display: flex;
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+            
+            .footer-social .social-links {
+                justify-content: center;
+            }
+        }
+        
+        /* Section headers mobile */
+        @media (max-width: 768px) {
+            .section-header {
+                margin-bottom: 40px;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .section-subtitle {
+                font-size: 0.9rem;
+            }
+        }
+        
+        /* Small devices (480px and below) */
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 15px;
+            }
+            
+            .hero-title .name {
+                font-size: 1.8rem;
+            }
+            
+            .about-stats {
+                gap: 0.3rem;
+            }
+            
+            .stat-card {
+                padding: 0.8rem;
+            }
+            
+            .stat-number {
+                font-size: 1.2rem;
+            }
+            
+            .stat-label {
+                font-size: 0.65rem;
+            }
+            
+            .skills-tools {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .project-image {
+                height: 180px;
+            }
+        }
+        
+        /* Landscape mode on mobile */
+        @media (max-width: 768px) and (orientation: landscape) {
+            .hero {
+                padding: 60px 0 40px;
+            }
+            
+            .hero-image .image-wrapper {
+                max-width: 180px;
+            }
+            
+            .projects-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        /* Touch-friendly adjustments */
+        @media (hover: none) and (pointer: coarse) {
+            .btn, 
+            .project-link,
+            .social-link,
+            .nav-link,
+            .tool-item,
+            .skill-card {
+                cursor: pointer;
+                -webkit-tap-highlight-color: transparent;
+            }
+            
+            .btn:active,
+            .project-link:active {
+                transform: scale(0.98);
+            }
+        }
+        
+        /* Fix for 100vh on mobile browsers */
+        .hero {
+            min-height: 100vh;
+            min-height: -webkit-fill-available;
+        }
+        
+        html {
+            height: -webkit-fill-available;
+        }
+        
+        body {
+            min-height: 100vh;
+            min-height: -webkit-fill-available;
         }
     </style>
 </head>
@@ -136,7 +499,7 @@
                             <a href="#" class="social-link" target="_blank">
                                 <i class="fab fa-twitter"></i>
                             </a>
-                            <a href="#" class="social-link" target="_blank">
+                            <a href="https://www.instagram.com/fardy122?igsh=MTA3N2NjaGpmMWx4Zg==" class="social-link" target="_blank">
                                 <i class="fab fa-instagram"></i>
                             </a>
                         </div>
@@ -433,10 +796,10 @@
                             <img src="assets/images/projects/mobile-app-design.jpg" alt="Mobile App Design" class="project-img" loading="lazy" onerror="this.src='https://via.placeholder.com/400x300?text=Mobile+App+Design'">
                             <div class="project-overlay">
                                 <div class="project-links">
-                                    <a href="#" class="project-link" target="_blank">
+                                    <a href="https://www.figma.com/proto/SV9pXmkR3HI4j3B5XavQsj/UI-Sistem-Pemesanan-Ayam-Bakar-CR?node-id=16-25" class="project-link" target="_blank">
                                         <i class="fab fa-figma"></i>
                                     </a>
-                                    <a href="#" class="project-link" target="_blank">
+                                    <a href="https://www.figma.com/proto/SV9pXmkR3HI4j3B5XavQsj/UI-Sistem-Pemesanan-Ayam-Bakar-CR?node-id=16-25" class="project-link" target="_blank">
                                         <i class="fas fa-external-link-alt"></i>
                                     </a>
                                 </div>
@@ -445,8 +808,8 @@
                         <div class="project-info">
                             <h3 class="project-title">Mobile App UI/UX Design</h3>
                             <p class="project-description">
-                                Complete UI/UX design for a mobile application created in Figma. Includes 
-                                wireframes, prototypes, and design system with modern interface.
+                                CR Chicken Mobile App Desain antarmuka aplikasi pemesanan makanan yang berfokus 
+                                pada pengalaman pengguna yang cepat dan intuitif.
                             </p>
                             <div class="project-tech">
                                 <span>Figma</span>
@@ -454,7 +817,7 @@
                                 <span>Prototyping</span>
                             </div>
                             <div class="project-links-bottom">
-                                <a href="#" class="project-btn" target="_blank">
+                                <a href="https://www.figma.com/proto/SV9pXmkR3HI4j3B5XavQsj/UI-Sistem-Pemesanan-Ayam-Bakar-CR?node-id=16-25" class="project-btn" target="_blank">
                                     <i class="fab fa-figma"></i>
                                     View Design
                                 </a>
@@ -478,10 +841,10 @@
                             </div>
                         </div>
                         <div class="project-info">
-                            <h3 class="project-title">Promotional Video Content</h3>
+                            <h3 class="project-title">Promotional Video Wisata Loang Gali</h3>
                             <p class="project-description">
-                                Professional video editing using CapCut for social media marketing campaigns. 
-                                Includes transitions, effects, motion graphics, and sound design.
+                                Video promosi destinasi wisata Loang Gali yang menampilkan keindahan alam 
+                                dan pesona desa dengan editing profesional menggunakan CapCut.
                             </p>
                             <div class="project-tech">
                                 <span>CapCut</span>
@@ -503,10 +866,10 @@
                             <img src="assets/images/projects/brand-identity.jpg" alt="Brand Identity" class="project-img" loading="lazy" onerror="this.src='https://via.placeholder.com/400x300?text=Brand+Identity'">
                             <div class="project-overlay">
                                 <div class="project-links">
-                                    <a href="#" class="project-link" target="_blank">
+                                    <a href="https://canva.link/0zr27jazz7nhjhl" class="project-link" target="_blank">
                                         <i class="fab fa-behance"></i>
                                     </a>
-                                    <a href="#" class="project-link" target="_blank">
+                                    <a href="https://canva.link/0zr27jazz7nhjhl" class="project-link" target="_blank">
                                         <i class="fas fa-external-link-alt"></i>
                                     </a>
                                 </div>
@@ -515,8 +878,8 @@
                         <div class="project-info">
                             <h3 class="project-title">Brand Identity Design</h3>
                             <p class="project-description">
-                                Complete brand identity created with Canva including logos, social media templates, 
-                                business cards, and marketing materials for various businesses.
+                                Desain identitas brand dengan gaya tipografi editorial modern yang clean dan elegan, 
+                                menggunakan huruf sans-serif secara konsisten.
                             </p>
                             <div class="project-tech">
                                 <span>Canva</span>
@@ -524,7 +887,7 @@
                                 <span>Graphic Design</span>
                             </div>
                             <div class="project-links-bottom">
-                                <a href="#" class="project-btn" target="_blank">
+                                <a href="https://canva.link/0zr27jazz7nhjhl" class="project-btn" target="_blank">
                                     <i class="fas fa-eye"></i>
                                     View Portfolio
                                 </a>
@@ -641,7 +1004,7 @@
                         <a href="#" class="social-link" target="_blank">
                             <i class="fab fa-twitter"></i>
                         </a>
-                        <a href="#" class="social-link" target="_blank">
+                        <a href="https://www.instagram.com/fardy122?igsh=MTA3N2NjaGpmMWx4Zg==" class="social-link" target="_blank">
                             <i class="fab fa-instagram"></i>
                         </a>
                     </div>
@@ -654,12 +1017,11 @@
         </div>
     </footer>
 
-    <!-- JavaScript - Moved to bottom for faster loading -->
+    <!-- JavaScript -->
     <script src="js/main.js"></script>
     <script>
-        // Simple loader hide without custom cursor issues
+        // Simple loader hide
         (function() {
-            // Hide loader immediately after page loads
             window.addEventListener('load', function() {
                 var loader = document.getElementById('loader');
                 if (loader) {
@@ -671,7 +1033,6 @@
                 document.body.classList.add('loaded');
             });
             
-            // Fallback: hide loader after 2 seconds if something goes wrong
             setTimeout(function() {
                 var loader = document.getElementById('loader');
                 if (loader && !loader.classList.contains('hide')) {
