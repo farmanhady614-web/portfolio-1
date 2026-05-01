@@ -1,449 +1,36 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=yes">
-    <meta name="description" content="Portfolio Farman Hadi - Web Developer & Creative Designer">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Farman Hadi — Web Developer & Creative Designer crafting elegant digital experiences. Specializing in PHP Laravel, UI/UX design, and modern web technologies.">
     <meta name="author" content="Farman Hadi">
-    <title>Farman Hadi | Portfolio</title>
-    
-    <!-- Google Fonts - Optimized -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- CSS -->
-    <link rel="stylesheet" href="css/style.css">
-    
-    <!-- Font Awesome Icons - Optimized -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    
-    <style>
-        /* Quick fix for loader */
-        .loader {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: #ffffff;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 9999;
-            transition: opacity 0.3s ease, visibility 0.3s ease;
-        }
-        
-        [data-theme="dark"] .loader {
-            background: #111827;
-        }
-        
-        .loader-content {
-            width: 50px;
-            height: 50px;
-            border: 3px solid #e5e7eb;
-            border-top-color: #3b82f6;
-            border-radius: 50%;
-            animation: spin 0.8s linear infinite;
-        }
-        
-        @keyframes spin {
-            to {
-                transform: rotate(360deg);
-            }
-        }
-        
-        .loader.hide {
-            opacity: 0;
-            visibility: hidden;
-        }
-        
-        /* Prevent layout shift */
-        body {
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-        
-        body.loaded {
-            opacity: 1;
-        }
+    <title>Farman Hadi | Web Developer & Creative Designer</title>
 
-        /* ========================================
-           Mobile Responsive Fixes
-           ======================================== */
-        
-        /* Container padding untuk mobile */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        /* Hero section mobile */
-        @media (max-width: 768px) {
-            .hero {
-                padding: 80px 0 60px;
-                min-height: auto;
-            }
-            
-            .hero-content {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-                text-align: center;
-            }
-            
-            .hero-text {
-                order: 1;
-            }
-            
-            .hero-image {
-                order: 0;
-                margin-bottom: 1rem;
-            }
-            
-            .hero-title .name {
-                font-size: 2rem;
-            }
-            
-            .typed-text {
-                font-size: 1.2rem;
-                display: block;
-                margin-top: 0.5rem;
-            }
-            
-            .hero-description {
-                font-size: 0.95rem;
-                padding: 0 10px;
-            }
-            
-            .hero-buttons {
-                justify-content: center;
-                flex-direction: column;
-                gap: 1rem;
-            }
-            
-            .hero-buttons .btn {
-                width: 100%;
-                justify-content: center;
-            }
-            
-            .social-links {
-                justify-content: center;
-            }
-            
-            .image-wrapper {
-                max-width: 250px;
-                margin: 0 auto;
-            }
-            
-            .hero-img {
-                width: 100%;
-                height: auto;
-            }
-            
-            .scroll-indicator {
-                display: none;
-            }
-        }
-        
-        /* About section mobile */
-        @media (max-width: 768px) {
-            .about-content {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-            
-            .about-text {
-                text-align: center;
-            }
-            
-            .about-stats {
-                grid-template-columns: repeat(3, 1fr);
-                gap: 0.5rem;
-            }
-            
-            .stat-card {
-                padding: 1rem;
-            }
-            
-            .stat-number {
-                font-size: 1.5rem;
-            }
-            
-            .stat-label {
-                font-size: 0.75rem;
-            }
-            
-            .skills-grid {
-                grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
-                gap: 0.8rem;
-            }
-            
-            .skill-item {
-                padding: 0.8rem;
-            }
-            
-            .skill-item i {
-                font-size: 1.5rem;
-            }
-            
-            .skill-item span {
-                font-size: 0.8rem;
-            }
-        }
-        
-        /* Skills section mobile */
-        @media (max-width: 768px) {
-            .skills-section {
-                padding: 60px 0;
-            }
-            
-            .skills-category {
-                padding: 1.2rem;
-            }
-            
-            .category-title {
-                font-size: 1.2rem;
-                margin-bottom: 1.2rem;
-            }
-            
-            .skills-grid-large {
-                grid-template-columns: 1fr;
-                gap: 1rem;
-            }
-            
-            .skill-card {
-                padding: 1rem;
-            }
-            
-            .skills-tools {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 0.8rem;
-            }
-            
-            .tool-item {
-                padding: 0.8rem;
-                justify-content: center;
-            }
-            
-            .tool-item i {
-                font-size: 1.2rem;
-            }
-            
-            .tool-item span {
-                font-size: 0.85rem;
-            }
-        }
-        
-        /* Projects section mobile */
-        @media (max-width: 768px) {
-            .projects {
-                padding: 60px 0;
-            }
-            
-            .projects-grid {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
-            
-            .project-card {
-                max-width: 100%;
-            }
-            
-            .project-image {
-                height: 200px;
-            }
-            
-            .project-info {
-                padding: 1.2rem;
-            }
-            
-            .project-title {
-                font-size: 1.2rem;
-            }
-            
-            .project-description {
-                font-size: 0.85rem;
-            }
-            
-            .project-tech span {
-                font-size: 0.7rem;
-                padding: 0.2rem 0.6rem;
-            }
-            
-            .project-btn {
-                padding: 0.4rem 0.8rem;
-                font-size: 0.8rem;
-            }
-        }
-        
-        /* Contact section mobile */
-        @media (max-width: 768px) {
-            .contact {
-                padding: 60px 0;
-            }
-            
-            .contact-content {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-            
-            .contact-info {
-                text-align: center;
-            }
-            
-            .contact-item {
-                justify-content: center;
-            }
-            
-            .contact-form {
-                padding: 1.5rem;
-            }
-            
-            .form-group input,
-            .form-group textarea {
-                font-size: 16px;
-            }
-        }
-        
-        /* Footer mobile */
-        @media (max-width: 768px) {
-            .footer {
-                padding: 40px 0 20px;
-            }
-            
-            .footer-content {
-                grid-template-columns: 1fr;
-                text-align: center;
-                gap: 1.5rem;
-            }
-            
-            .footer-logo p {
-                margin-top: 0.5rem;
-            }
-            
-            .footer-links ul {
-                display: flex;
-                flex-direction: column;
-                gap: 0.5rem;
-            }
-            
-            .footer-social .social-links {
-                justify-content: center;
-            }
-        }
-        
-        /* Section headers mobile */
-        @media (max-width: 768px) {
-            .section-header {
-                margin-bottom: 40px;
-            }
-            
-            .section-title {
-                font-size: 1.8rem;
-            }
-            
-            .section-subtitle {
-                font-size: 0.9rem;
-            }
-        }
-        
-        /* Small devices (480px and below) */
-        @media (max-width: 480px) {
-            .container {
-                padding: 0 15px;
-            }
-            
-            .hero-title .name {
-                font-size: 1.8rem;
-            }
-            
-            .about-stats {
-                gap: 0.3rem;
-            }
-            
-            .stat-card {
-                padding: 0.8rem;
-            }
-            
-            .stat-number {
-                font-size: 1.2rem;
-            }
-            
-            .stat-label {
-                font-size: 0.65rem;
-            }
-            
-            .skills-tools {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            
-            .project-image {
-                height: 180px;
-            }
-        }
-        
-        /* Landscape mode on mobile */
-        @media (max-width: 768px) and (orientation: landscape) {
-            .hero {
-                padding: 60px 0 40px;
-            }
-            
-            .hero-image .image-wrapper {
-                max-width: 180px;
-            }
-            
-            .projects-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-        
-        /* Touch-friendly adjustments */
-        @media (hover: none) and (pointer: coarse) {
-            .btn, 
-            .project-link,
-            .social-link,
-            .nav-link,
-            .tool-item,
-            .skill-card {
-                cursor: pointer;
-                -webkit-tap-highlight-color: transparent;
-            }
-            
-            .btn:active,
-            .project-link:active {
-                transform: scale(0.98);
-            }
-        }
-        
-        /* Fix for 100vh on mobile browsers */
-        .hero {
-            min-height: 100vh;
-            min-height: -webkit-fill-available;
-        }
-        
-        html {
-            height: -webkit-fill-available;
-        }
-        
-        body {
-            min-height: 100vh;
-            min-height: -webkit-fill-available;
-        }
-    </style>
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- External CSS -->
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <!-- Loading Animation -->
+    <!-- Loading spinner -->
     <div class="loader" id="loader">
-        <div class="loader-content"></div>
+        <div class="loader-spinner"></div>
     </div>
 
-    <!-- Navigation -->
-    <nav class="navbar">
+    <!-- ==================== NAVIGATION ==================== -->
+    <nav class="navbar" id="navbar">
         <div class="nav-container">
             <div class="nav-logo">
                 <a href="#home" class="logo">FH.</a>
             </div>
-            
-            <div class="nav-menu">
+            <div class="nav-menu" id="navMenu">
                 <ul class="nav-links">
                     <li><a href="#home" class="nav-link active">Home</a></li>
                     <li><a href="#about" class="nav-link">About</a></li>
@@ -452,8 +39,7 @@
                     <li><a href="#contact" class="nav-link">Contact</a></li>
                 </ul>
             </div>
-            
-            <div class="nav-toggle">
+            <div class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -461,52 +47,53 @@
         </div>
     </nav>
 
-    <!-- Main Content -->
     <main>
-        <!-- Hero Section -->
+        <!-- ==================== HERO SECTION ==================== -->
         <section id="home" class="hero section">
             <div class="container">
                 <div class="hero-content">
                     <div class="hero-text">
-                        <div class="hero-greeting">
-                            <span class="greeting-text">Hello, I'm</span>
+                        <div class="hero-badge">
+                            <span class="dot"></span> Available for freelance
                         </div>
                         <h1 class="hero-title">
                             <span class="name">Farman Hadi</span>
-                            <span class="typed-text"></span>
-                            <span class="cursor-blink">|</span>
+                            <span class="typed-wrapper">
+                                <span class="typed-text" id="typedText"></span>
+                                <span class="cursor-blink">|</span>
+                            </span>
                         </h1>
                         <p class="hero-description">
-                            Web Developer & Creative Designer passionate about building elegant web applications 
-                            and creating stunning visual experiences. Expert in PHP Laravel and modern design tools.
+                            Web Developer & Creative Designer crafting elegant web applications
+                            and stunning visual experiences. Expert in PHP Laravel and modern design tools.
                         </p>
                         <div class="hero-buttons">
                             <a href="#projects" class="btn btn-primary">
-                                View Projects
-                                <i class="fas fa-arrow-right"></i>
+                                View Projects <i class="fas fa-arrow-right"></i>
                             </a>
                             <a href="#contact" class="btn btn-outline">
                                 Contact Me
                             </a>
                         </div>
                         <div class="social-links">
-                            <a href="#" class="social-link" target="_blank">
+                            <a href="#" class="social-link" target="_blank" rel="noopener" aria-label="GitHub">
                                 <i class="fab fa-github"></i>
                             </a>
-                            <a href="#" class="social-link" target="_blank">
+                            <a href="#" class="social-link" target="_blank" rel="noopener" aria-label="LinkedIn">
                                 <i class="fab fa-linkedin-in"></i>
                             </a>
-                            <a href="#" class="social-link" target="_blank">
+                            <a href="#" class="social-link" target="_blank" rel="noopener" aria-label="Twitter">
                                 <i class="fab fa-twitter"></i>
                             </a>
-                            <a href="https://www.instagram.com/fardy122?igsh=MTA3N2NjaGpmMWx4Zg==" class="social-link" target="_blank">
+                            <a href="https://www.instagram.com/fardy122?igsh=MTA3N2NjaGpmMWx4Zg==" class="social-link" target="_blank" rel="noopener" aria-label="Instagram">
                                 <i class="fab fa-instagram"></i>
                             </a>
                         </div>
                     </div>
                     <div class="hero-image">
                         <div class="image-wrapper">
-                            <img src="assets/images/profile.jpg" alt="Farman Hadi" class="hero-img" loading="lazy" onerror="this.src='https://via.placeholder.com/400x400?text=Farman+Hadi'">
+                            <img src="assets/images/profile.jpg" alt="Farman Hadi portrait" class="hero-img" loading="eager" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div class="image-placeholder" style="display:none;"><i class="fas fa-user"></i></div>
                             <div class="image-glow"></div>
                         </div>
                     </div>
@@ -518,69 +105,49 @@
             </div>
         </section>
 
-        <!-- About Section -->
+        <!-- ==================== ABOUT SECTION ==================== -->
         <section id="about" class="about section">
             <div class="container">
-                <div class="section-header">
-                    <h2 class="section-title">About Me</h2>
+                <div class="section-header reveal">
+                    <span class="section-label">About</span>
+                    <h2 class="section-title">Get to Know Me</h2>
                     <div class="section-line"></div>
                 </div>
-                
                 <div class="about-content">
-                    <div class="about-text">
+                    <div class="about-text reveal">
                         <h3>Who am I?</h3>
                         <p>
-                            I'm Farman Hadi, a passionate web developer and creative designer based in Indonesia. 
-                            With expertise in both backend development using PHP Laravel and frontend technologies, 
+                            I'm Farman Hadi, a passionate web developer and creative designer based in Indonesia.
+                            With expertise in both backend development using PHP Laravel and frontend technologies,
                             I create complete digital solutions that are both functional and visually appealing.
                         </p>
                         <p>
-                            I specialize in building robust web applications, designing user-friendly interfaces, 
-                            and creating engaging visual content. My goal is to deliver high-quality work that 
+                            I specialize in building robust web applications, designing user-friendly interfaces,
+                            and creating engaging visual content. My goal is to deliver high-quality work that
                             exceeds client expectations and provides exceptional user experiences.
                         </p>
-                        
-                        <div class="skills">
-                            <h4>Core Expertise:</h4>
-                            <div class="skills-grid">
-                                <div class="skill-item">
-                                    <i class="fab fa-php"></i>
-                                    <span>PHP</span>
-                                </div>
-                                <div class="skill-item">
-                                    <i class="fab fa-laravel"></i>
-                                    <span>Laravel</span>
-                                </div>
-                                <div class="skill-item">
-                                    <i class="fab fa-html5"></i>
-                                    <span>HTML5</span>
-                                </div>
-                                <div class="skill-item">
-                                    <i class="fab fa-css3-alt"></i>
-                                    <span>CSS3</span>
-                                </div>
-                                <div class="skill-item">
-                                    <i class="fab fa-js"></i>
-                                    <span>JavaScript</span>
-                                </div>
-                                <div class="skill-item">
-                                    <i class="fab fa-react"></i>
-                                    <span>React</span>
-                                </div>
-                            </div>
+                        <div class="skill-tags">
+                            <span class="skill-tag"><i class="fab fa-php"></i> PHP</span>
+                            <span class="skill-tag"><i class="fab fa-laravel"></i> Laravel</span>
+                            <span class="skill-tag"><i class="fab fa-html5"></i> HTML5</span>
+                            <span class="skill-tag"><i class="fab fa-css3-alt"></i> CSS3</span>
+                            <span class="skill-tag"><i class="fab fa-js"></i> JavaScript</span>
+                            <span class="skill-tag"><i class="fab fa-react"></i> React</span>
                         </div>
                     </div>
-                    
-                    <div class="about-stats">
+                    <div class="about-stats reveal">
                         <div class="stat-card">
+                            <div class="stat-icon"><i class="fas fa-folder-open"></i></div>
                             <div class="stat-number" data-count="25">0</div>
                             <div class="stat-label">Projects Completed</div>
                         </div>
                         <div class="stat-card">
+                            <div class="stat-icon"><i class="fas fa-clock"></i></div>
                             <div class="stat-number" data-count="3">0</div>
                             <div class="stat-label">Years Experience</div>
                         </div>
                         <div class="stat-card">
+                            <div class="stat-icon"><i class="fas fa-smile"></i></div>
                             <div class="stat-number" data-count="15">0</div>
                             <div class="stat-label">Happy Clients</div>
                         </div>
@@ -589,399 +156,261 @@
             </div>
         </section>
 
-        <!-- Skills Section -->
+        <!-- ==================== SKILLS SECTION ==================== -->
         <section id="skills" class="skills-section section">
             <div class="container">
-                <div class="section-header">
-                    <h2 class="section-title">My Skills</h2>
+                <div class="section-header reveal">
+                    <span class="section-label">Skills</span>
+                    <h2 class="section-title">Technologies & Tools</h2>
                     <div class="section-line"></div>
-                    <p class="section-subtitle">Technologies & tools I master</p>
+                    <p class="section-subtitle">Technologies and tools I use to bring ideas to life</p>
                 </div>
-                
                 <div class="skills-categories">
-                    <!-- Development Skills -->
-                    <div class="skills-category">
-                        <h3 class="category-title">
-                            <i class="fas fa-code"></i>
-                            Web Development
-                        </h3>
+                    <!-- Web Development -->
+                    <div class="skills-category reveal">
+                        <h3 class="category-title"><i class="fas fa-code"></i> Web Development</h3>
                         <div class="skills-grid-large">
                             <div class="skill-card">
                                 <i class="fab fa-php"></i>
                                 <h4>PHP</h4>
-                                <div class="skill-level">
-                                    <div class="skill-progress" style="width: 90%"></div>
-                                </div>
+                                <div class="skill-level"><div class="skill-progress" data-width="90%"></div></div>
                                 <div class="skill-percent">90%</div>
                             </div>
                             <div class="skill-card">
                                 <i class="fab fa-laravel"></i>
                                 <h4>Laravel</h4>
-                                <div class="skill-level">
-                                    <div class="skill-progress" style="width: 85%"></div>
-                                </div>
+                                <div class="skill-level"><div class="skill-progress" data-width="85%"></div></div>
                                 <div class="skill-percent">85%</div>
                             </div>
                             <div class="skill-card">
                                 <i class="fab fa-html5"></i>
                                 <h4>HTML5</h4>
-                                <div class="skill-level">
-                                    <div class="skill-progress" style="width: 95%"></div>
-                                </div>
+                                <div class="skill-level"><div class="skill-progress" data-width="95%"></div></div>
                                 <div class="skill-percent">95%</div>
                             </div>
                             <div class="skill-card">
                                 <i class="fab fa-css3-alt"></i>
                                 <h4>CSS3</h4>
-                                <div class="skill-level">
-                                    <div class="skill-progress" style="width: 90%"></div>
-                                </div>
+                                <div class="skill-level"><div class="skill-progress" data-width="90%"></div></div>
                                 <div class="skill-percent">90%</div>
                             </div>
                             <div class="skill-card">
                                 <i class="fab fa-js"></i>
                                 <h4>JavaScript</h4>
-                                <div class="skill-level">
-                                    <div class="skill-progress" style="width: 85%"></div>
-                                </div>
+                                <div class="skill-level"><div class="skill-progress" data-width="85%"></div></div>
                                 <div class="skill-percent">85%</div>
                             </div>
                             <div class="skill-card">
                                 <i class="fab fa-react"></i>
                                 <h4>React</h4>
-                                <div class="skill-level">
-                                    <div class="skill-progress" style="width: 80%"></div>
-                                </div>
+                                <div class="skill-level"><div class="skill-progress" data-width="80%"></div></div>
                                 <div class="skill-percent">80%</div>
                             </div>
                         </div>
                     </div>
-
-                    <!-- Design & Creative Tools -->
-                    <div class="skills-category">
-                        <h3 class="category-title">
-                            <i class="fas fa-palette"></i>
-                            Design & Creative
-                        </h3>
+                    <!-- Design & Creative -->
+                    <div class="skills-category reveal">
+                        <h3 class="category-title"><i class="fas fa-palette"></i> Design & Creative</h3>
                         <div class="skills-grid-large">
                             <div class="skill-card">
                                 <i class="fab fa-figma"></i>
                                 <h4>Figma</h4>
-                                <div class="skill-level">
-                                    <div class="skill-progress" style="width: 85%"></div>
-                                </div>
+                                <div class="skill-level"><div class="skill-progress" data-width="85%"></div></div>
                                 <div class="skill-percent">85%</div>
                             </div>
                             <div class="skill-card">
                                 <i class="fas fa-paint-brush"></i>
                                 <h4>Canva</h4>
-                                <div class="skill-level">
-                                    <div class="skill-progress" style="width: 95%"></div>
-                                </div>
+                                <div class="skill-level"><div class="skill-progress" data-width="95%"></div></div>
                                 <div class="skill-percent">95%</div>
                             </div>
                             <div class="skill-card">
                                 <i class="fas fa-video"></i>
                                 <h4>CapCut</h4>
-                                <div class="skill-level">
-                                    <div class="skill-progress" style="width: 88%"></div>
-                                </div>
+                                <div class="skill-level"><div class="skill-progress" data-width="88%"></div></div>
                                 <div class="skill-percent">88%</div>
                             </div>
                             <div class="skill-card">
-                                <i class="fas fa-adobe"></i>
+                                <i class="fas fa-image"></i>
                                 <h4>Photoshop</h4>
-                                <div class="skill-level">
-                                    <div class="skill-progress" style="width: 75%"></div>
-                                </div>
+                                <div class="skill-level"><div class="skill-progress" data-width="75%"></div></div>
                                 <div class="skill-percent">75%</div>
                             </div>
                         </div>
                     </div>
-
-                    <!-- Tools & Others -->
-                    <div class="skills-category">
-                        <h3 class="category-title">
-                            <i class="fas fa-tools"></i>
-                            Tools & Technologies
-                        </h3>
+                    <!-- Tools & Technologies -->
+                    <div class="skills-category reveal">
+                        <h3 class="category-title"><i class="fas fa-tools"></i> Tools & Technologies</h3>
                         <div class="skills-tools">
-                            <div class="tool-item">
-                                <i class="fab fa-git-alt"></i>
-                                <span>Git</span>
-                            </div>
-                            <div class="tool-item">
-                                <i class="fab fa-github"></i>
-                                <span>GitHub</span>
-                            </div>
-                            <div class="tool-item">
-                                <i class="fas fa-database"></i>
-                                <span>MySQL</span>
-                            </div>
-                            <div class="tool-item">
-                                <i class="fab fa-npm"></i>
-                                <span>NPM</span>
-                            </div>
-                            <div class="tool-item">
-                                <i class="fas fa-cloud"></i>
-                                <span>Postman</span>
-                            </div>
-                            <div class="tool-item">
-                                <i class="fas fa-terminal"></i>
-                                <span>VS Code</span>
-                            </div>
-                            <div class="tool-item">
-                                <i class="fas fa-window-maximize"></i>
-                                <span>Bootstrap</span>
-                            </div>
-                            <div class="tool-item">
-                                <i class="fas fa-code-branch"></i>
-                                <span>REST API</span>
-                            </div>
+                            <div class="tool-item"><i class="fab fa-git-alt"></i> <span>Git</span></div>
+                            <div class="tool-item"><i class="fab fa-github"></i> <span>GitHub</span></div>
+                            <div class="tool-item"><i class="fas fa-database"></i> <span>MySQL</span></div>
+                            <div class="tool-item"><i class="fab fa-npm"></i> <span>NPM</span></div>
+                            <div class="tool-item"><i class="fas fa-cloud"></i> <span>Postman</span></div>
+                            <div class="tool-item"><i class="fas fa-terminal"></i> <span>VS Code</span></div>
+                            <div class="tool-item"><i class="fas fa-window-maximize"></i> <span>Bootstrap</span></div>
+                            <div class="tool-item"><i class="fas fa-code-branch"></i> <span>REST API</span></div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Projects Section -->
+        <!-- ==================== PROJECTS SECTION ==================== -->
         <section id="projects" class="projects section">
             <div class="container">
-                <div class="section-header">
-                    <h2 class="section-title">Featured Projects</h2>
+                <div class="section-header reveal">
+                    <span class="section-label">Projects</span>
+                    <h2 class="section-title">Featured Work</h2>
                     <div class="section-line"></div>
-                    <p class="section-subtitle">Some of my best work</p>
+                    <p class="section-subtitle">Some of my best projects</p>
                 </div>
-                
                 <div class="projects-grid">
-                    <!-- Project 1 - Apotek Online -->
-                    <div class="project-card">
+                    <!-- Project 1 -->
+                    <div class="project-card reveal">
                         <div class="project-image">
-                            <img src="assets/images/projects/apotek-online.jpg" alt="Apotek Online" class="project-img" loading="lazy" onerror="this.src='https://via.placeholder.com/400x300?text=Apotek+Online'">
+                            <img src="assets/images/projects/apotek-online.jpg" alt="Apotek Online preview" class="project-img" loading="lazy" onerror="this.style.display='none'; this.parentElement.style.background='linear-gradient(135deg, #6366f1, #8b5cf6)';">
                             <div class="project-overlay">
-                                <div class="project-links">
-                                    <a href="http://localhost/apotek_online/index.php" class="project-link" target="_blank">
-                                        <i class="fas fa-external-link-alt"></i>
-                                    </a>
-                                    <a href="http://localhost/apotek_online/index.php" class="project-link" target="_blank">
-                                        <i class="fas fa-eye"></i>
-                                    </a>
-                                </div>
+                                <a href="http://localhost/apotek_online/index.php" class="project-link-icon" target="_blank" rel="noopener" title="Live Demo"><i class="fas fa-external-link-alt"></i></a>
+                                <a href="http://localhost/apotek_online/index.php" class="project-link-icon" target="_blank" rel="noopener" title="View Details"><i class="fas fa-eye"></i></a>
                             </div>
                         </div>
                         <div class="project-info">
                             <h3 class="project-title">Apotek Online</h3>
-                            <p class="project-description">
-                                Sistem manajemen apotek online berbasis web dengan fitur lengkap untuk pengelolaan obat, 
-                                transaksi penjualan, manajemen stok, dan laporan penjualan.
-                            </p>
+                            <p class="project-description">Pharmacy management system with sales transactions, inventory management, and sales reporting.</p>
                             <div class="project-tech">
-                                <span>PHP</span>
-                                <span>Laravel</span>
-                                <span>MySQL</span>
-                                <span>Bootstrap</span>
+                                <span>PHP</span><span>Laravel</span><span>MySQL</span><span>Bootstrap</span>
                             </div>
-                            <div class="project-links-bottom">
-                                <a href="http://localhost/apotek_online/index.php" class="project-btn" target="_blank">
-                                    <i class="fas fa-external-link-alt"></i>
-                                    Live Demo
-                                </a>
-                            </div>
+                            <a href="http://localhost/apotek_online/index.php" class="project-btn" target="_blank" rel="noopener">Live Demo <i class="fas fa-arrow-right"></i></a>
                         </div>
                     </div>
-                    
-                    <!-- Project 2 - Mobile App UI/UX -->
-                    <div class="project-card">
+                    <!-- Project 2 -->
+                    <div class="project-card reveal">
                         <div class="project-image">
-                            <img src="assets/images/projects/mobile-app-design.jpg" alt="Mobile App Design" class="project-img" loading="lazy" onerror="this.src='https://via.placeholder.com/400x300?text=Mobile+App+Design'">
+                            <img src="assets/images/projects/mobile-app-design.jpg" alt="Mobile App UI/UX preview" class="project-img" loading="lazy" onerror="this.style.display='none'; this.parentElement.style.background='linear-gradient(135deg, #8b5cf6, #06b6d4)';">
                             <div class="project-overlay">
-                                <div class="project-links">
-                                    <a href="https://www.figma.com/proto/SV9pXmkR3HI4j3B5XavQsj/UI-Sistem-Pemesanan-Ayam-Bakar-CR?node-id=16-25" class="project-link" target="_blank">
-                                        <i class="fab fa-figma"></i>
-                                    </a>
-                                    <a href="https://www.figma.com/proto/SV9pXmkR3HI4j3B5XavQsj/UI-Sistem-Pemesanan-Ayam-Bakar-CR?node-id=16-25" class="project-link" target="_blank">
-                                        <i class="fas fa-external-link-alt"></i>
-                                    </a>
-                                </div>
+                                <a href="https://www.figma.com/proto/SV9pXmkR3HI4j3B5XavQsj/UI-Sistem-Pemesanan-Ayam-Bakar-CR?node-id=16-25" class="project-link-icon" target="_blank" rel="noopener" title="Figma"><i class="fab fa-figma"></i></a>
+                                <a href="https://www.figma.com/proto/SV9pXmkR3HI4j3B5XavQsj/UI-Sistem-Pemesanan-Ayam-Bakar-CR?node-id=16-25" class="project-link-icon" target="_blank" rel="noopener" title="View Design"><i class="fas fa-external-link-alt"></i></a>
                             </div>
                         </div>
                         <div class="project-info">
                             <h3 class="project-title">Mobile App UI/UX Design</h3>
-                            <p class="project-description">
-                                CR Chicken Mobile App Desain antarmuka aplikasi pemesanan makanan yang berfokus 
-                                pada pengalaman pengguna yang cepat dan intuitif.
-                            </p>
+                            <p class="project-description">CR Chicken food ordering app interface focused on fast and intuitive user experience.</p>
                             <div class="project-tech">
-                                <span>Figma</span>
-                                <span>UI/UX</span>
-                                <span>Prototyping</span>
+                                <span>Figma</span><span>UI/UX</span><span>Prototyping</span>
                             </div>
-                            <div class="project-links-bottom">
-                                <a href="https://www.figma.com/proto/SV9pXmkR3HI4j3B5XavQsj/UI-Sistem-Pemesanan-Ayam-Bakar-CR?node-id=16-25" class="project-btn" target="_blank">
-                                    <i class="fab fa-figma"></i>
-                                    View Design
-                                </a>
-                            </div>
+                            <a href="https://www.figma.com/proto/SV9pXmkR3HI4j3B5XavQsj/UI-Sistem-Pemesanan-Ayam-Bakar-CR?node-id=16-25" class="project-btn" target="_blank" rel="noopener">View Design <i class="fas fa-arrow-right"></i></a>
                         </div>
                     </div>
-                    
-                    <!-- Project 3 - Video Content -->
-                    <div class="project-card">
+                    <!-- Project 3 -->
+                    <div class="project-card reveal">
                         <div class="project-image">
-                            <img src="assets/images/projects/video-editing.jpg" alt="Video Editing" class="project-img" loading="lazy" onerror="this.src='https://via.placeholder.com/400x300?text=Video+Editing'">
+                            <img src="assets/images/projects/video-editing.jpg" alt="Video Editing preview" class="project-img" loading="lazy" onerror="this.style.display='none'; this.parentElement.style.background='linear-gradient(135deg, #06b6d4, #6366f1)';">
                             <div class="project-overlay">
-                                <div class="project-links">
-                                    <a href="#" class="project-link" target="_blank">
-                                        <i class="fab fa-youtube"></i>
-                                    </a>
-                                    <a href="#" class="project-link" target="_blank">
-                                        <i class="fas fa-external-link-alt"></i>
-                                    </a>
-                                </div>
+                                <a href="#" class="project-link-icon" target="_blank" rel="noopener" title="YouTube"><i class="fab fa-youtube"></i></a>
+                                <a href="#" class="project-link-icon" target="_blank" rel="noopener" title="Watch"><i class="fas fa-external-link-alt"></i></a>
                             </div>
                         </div>
                         <div class="project-info">
-                            <h3 class="project-title">Promotional Video Wisata Loang Gali</h3>
-                            <p class="project-description">
-                                Video promosi destinasi wisata Loang Gali yang menampilkan keindahan alam 
-                                dan pesona desa dengan editing profesional menggunakan CapCut.
-                            </p>
+                            <h3 class="project-title">Promotional Video Loang Gali</h3>
+                            <p class="project-description">Tourism destination promotional video showcasing natural beauty with professional CapCut editing.</p>
                             <div class="project-tech">
-                                <span>CapCut</span>
-                                <span>Video Editing</span>
-                                <span>Motion Graphics</span>
+                                <span>CapCut</span><span>Video Editing</span><span>Motion Graphics</span>
                             </div>
-                            <div class="project-links-bottom">
-                                <a href="#" class="project-btn" target="_blank">
-                                    <i class="fab fa-youtube"></i>
-                                    Watch Video
-                                </a>
-                            </div>
+                            <a href="#" class="project-btn" target="_blank" rel="noopener">Watch Video <i class="fas fa-arrow-right"></i></a>
                         </div>
                     </div>
-                    
-                    <!-- Project 4 - Brand Identity -->
-                    <div class="project-card">
+                    <!-- Project 4 -->
+                    <div class="project-card reveal">
                         <div class="project-image">
-                            <img src="assets/images/projects/brand-identity.jpg" alt="Brand Identity" class="project-img" loading="lazy" onerror="this.src='https://via.placeholder.com/400x300?text=Brand+Identity'">
+                            <img src="assets/images/projects/brand-identity.jpg" alt="Brand Identity preview" class="project-img" loading="lazy" onerror="this.style.display='none'; this.parentElement.style.background='linear-gradient(135deg, #6366f1, #ec4899)';">
                             <div class="project-overlay">
-                                <div class="project-links">
-                                    <a href="https://canva.link/0zr27jazz7nhjhl" class="project-link" target="_blank">
-                                        <i class="fab fa-behance"></i>
-                                    </a>
-                                    <a href="https://canva.link/0zr27jazz7nhjhl" class="project-link" target="_blank">
-                                        <i class="fas fa-external-link-alt"></i>
-                                    </a>
-                                </div>
+                                <a href="https://canva.link/0zr27jazz7nhjhl" class="project-link-icon" target="_blank" rel="noopener" title="Behance"><i class="fab fa-behance"></i></a>
+                                <a href="https://canva.link/0zr27jazz7nhjhl" class="project-link-icon" target="_blank" rel="noopener" title="View Portfolio"><i class="fas fa-external-link-alt"></i></a>
                             </div>
                         </div>
                         <div class="project-info">
                             <h3 class="project-title">Brand Identity Design</h3>
-                            <p class="project-description">
-                                Desain identitas brand dengan gaya tipografi editorial modern yang clean dan elegan, 
-                                menggunakan huruf sans-serif secara konsisten.
-                            </p>
+                            <p class="project-description">Clean, elegant brand identity with modern editorial typography and consistent sans-serif styling.</p>
                             <div class="project-tech">
-                                <span>Canva</span>
-                                <span>Branding</span>
-                                <span>Graphic Design</span>
+                                <span>Canva</span><span>Branding</span><span>Graphic Design</span>
                             </div>
-                            <div class="project-links-bottom">
-                                <a href="https://canva.link/0zr27jazz7nhjhl" class="project-btn" target="_blank">
-                                    <i class="fas fa-eye"></i>
-                                    View Portfolio
-                                </a>
-                            </div>
+                            <a href="https://canva.link/0zr27jazz7nhjhl" class="project-btn" target="_blank" rel="noopener">View Portfolio <i class="fas fa-arrow-right"></i></a>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Contact Section -->
+        <!-- ==================== CONTACT SECTION ==================== -->
         <section id="contact" class="contact section">
             <div class="container">
-                <div class="section-header">
+                <div class="section-header reveal">
+                    <span class="section-label">Contact</span>
                     <h2 class="section-title">Get In Touch</h2>
                     <div class="section-line"></div>
-                    <p class="section-subtitle">Let's work together</p>
+                    <p class="section-subtitle">Let's work together on your next project</p>
                 </div>
-                
                 <div class="contact-content">
-                    <div class="contact-info">
+                    <div class="contact-info reveal">
                         <h3>Let's talk about your project</h3>
-                        <p>
-                            I'm currently available for freelance work and collaborations. 
-                            Whether you need a web application, design work, or video content, 
-                            I'm here to help bring your ideas to life!
-                        </p>
-                        
+                        <p>I'm currently available for freelance work and collaborations. Whether you need a web application, design work, or video content, I'm here to help.</p>
                         <div class="contact-details">
                             <div class="contact-item">
-                                <i class="fas fa-envelope"></i>
+                                <div class="contact-icon"><i class="fas fa-envelope"></i></div>
                                 <div>
                                     <h4>Email</h4>
                                     <a href="mailto:farmanhady614@gmail.com">farmanhady614@gmail.com</a>
                                 </div>
                             </div>
                             <div class="contact-item">
-                                <i class="fas fa-phone-alt"></i>
+                                <div class="contact-icon"><i class="fas fa-phone-alt"></i></div>
                                 <div>
                                     <h4>Phone</h4>
                                     <a href="tel:+6285237329865">+62 852 3732 9865</a>
                                 </div>
                             </div>
                             <div class="contact-item">
-                                <i class="fas fa-map-marker-alt"></i>
+                                <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
                                 <div>
                                     <h4>Location</h4>
-                                    <p>Kesik, Kec. Masbagik, Lombok Timur, NTB</p>
+                                    <p>Kesik, Masbagik, Lombok Timur, NTB</p>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    
-                    <form class="contact-form" id="contactForm">
+                    <form class="contact-form reveal" id="contactForm">
                         <div class="form-group">
-                            <input type="text" id="name" name="name" required>
+                            <input type="text" id="name" name="name" placeholder=" " required>
                             <label for="name">Your Name</label>
-                            <span class="focus-border"></span>
                         </div>
-                        
                         <div class="form-group">
-                            <input type="email" id="email" name="email" required>
+                            <input type="email" id="email" name="email" placeholder=" " required>
                             <label for="email">Your Email</label>
-                            <span class="focus-border"></span>
                         </div>
-                        
                         <div class="form-group">
-                            <textarea id="message" name="message" rows="5" required></textarea>
+                            <textarea id="message" name="message" rows="5" placeholder=" " required></textarea>
                             <label for="message">Your Message</label>
-                            <span class="focus-border"></span>
                         </div>
-                        
                         <button type="submit" class="btn btn-primary btn-submit">
-                            Send Message
-                            <i class="fas fa-paper-plane"></i>
+                            Send Message <i class="fas fa-paper-plane"></i>
                         </button>
-                        
-                        <div class="form-message"></div>
+                        <div class="form-message" id="formMessage"></div>
                     </form>
                 </div>
             </div>
         </section>
     </main>
 
-    <!-- Footer -->
+    <!-- ==================== FOOTER ==================== -->
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
-                <div class="footer-logo">
-                    <a href="#home" class="logo">FH.</a>
+                <div class="footer-col">
+                    <a href="#home" class="logo" style="background:linear-gradient(135deg, #6366f1, #8b5cf6); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;">FH.</a>
                     <p>Creating digital solutions with passion and precision.</p>
                 </div>
-                
-                <div class="footer-links">
+                <div class="footer-col">
                     <h4>Quick Links</h4>
                     <ul>
                         <li><a href="#home">Home</a></li>
@@ -991,59 +420,28 @@
                         <li><a href="#contact">Contact</a></li>
                     </ul>
                 </div>
-                
-                <div class="footer-social">
-                    <h4>Connect With Me</h4>
-                    <div class="social-links">
-                        <a href="#" class="social-link" target="_blank">
-                            <i class="fab fa-github"></i>
-                        </a>
-                        <a href="#" class="social-link" target="_blank">
-                            <i class="fab fa-linkedin-in"></i>
-                        </a>
-                        <a href="#" class="social-link" target="_blank">
-                            <i class="fab fa-twitter"></i>
-                        </a>
-                        <a href="https://www.instagram.com/fardy122?igsh=MTA3N2NjaGpmMWx4Zg==" class="social-link" target="_blank">
-                            <i class="fab fa-instagram"></i>
-                        </a>
+                <div class="footer-col">
+                    <h4>Connect</h4>
+                    <div class="footer-social-links">
+                        <a href="#" class="social-link" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                        <a href="#" class="social-link" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-link" target="_blank" rel="noopener" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.instagram.com/fardy122?igsh=MTA3N2NjaGpmMWx4Zg==" class="social-link" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
                     </div>
                 </div>
             </div>
-            
             <div class="footer-bottom">
-                <p>&copy; 2026 Farman Hadi. All rights reserved.</p>
+                <p>&copy; <span id="footerYear">2026</span> Farman Hadi. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
-    <!-- JavaScript -->
+    <!-- Back to top button -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to top"><i class="fas fa-arrow-up"></i></button>
+    <!-- Dark mode toggle -->
+    <button class="dark-mode-toggle" id="darkModeToggle" aria-label="Toggle dark mode"><i class="fas fa-moon"></i></button>
+
+    <!-- External JS -->
     <script src="js/main.js"></script>
-    <script>
-        // Simple loader hide
-        (function() {
-            window.addEventListener('load', function() {
-                var loader = document.getElementById('loader');
-                if (loader) {
-                    loader.classList.add('hide');
-                    setTimeout(function() {
-                        loader.style.display = 'none';
-                    }, 300);
-                }
-                document.body.classList.add('loaded');
-            });
-            
-            setTimeout(function() {
-                var loader = document.getElementById('loader');
-                if (loader && !loader.classList.contains('hide')) {
-                    loader.classList.add('hide');
-                    setTimeout(function() {
-                        loader.style.display = 'none';
-                    }, 300);
-                }
-                document.body.classList.add('loaded');
-            }, 2000);
-        })();
-    </script>
 </body>
 </html>
